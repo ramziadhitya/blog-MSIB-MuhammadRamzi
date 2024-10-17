@@ -40,10 +40,20 @@
                         </li>
                     </ul>
                 </div>
+                <form action="{{route ('logout') }}" method="post">
+        @csrf
+        <button class="btn btn-danger btn-sm">Logout</button>
+    </form>
             </div>
         </nav>
     </header>
+@if(Auth::check())
+<div class="text-center">
+<b>Halo {{Auth::user()->name}}, Anda berhasil login</b>
+</div>
+@endif
 
+    
     <div class="container mt-3">
         @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">

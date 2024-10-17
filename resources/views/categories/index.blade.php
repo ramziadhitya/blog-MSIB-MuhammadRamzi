@@ -3,6 +3,9 @@
 @section('title', 'Categories')
 
 @section('content')
+
+
+
 <h1>Categories</h1>
 <a href="{{ route('categories.create') }}" class="btn btn-primary mb-2">Create Category</a>
 <div class="list-group">
