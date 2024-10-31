@@ -17,7 +17,7 @@
                     <div class="card-body">
                         <h3 class="text-center mb-4">Login</h3>
 
-                        <!-- Registration Form -->
+                        <!-- Login Form -->
                         <form action="{{route('login.submit')}}" method="POST">
                             @csrf 
                             
@@ -34,12 +34,16 @@
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </div>
-
                         </form>
-                        
+
                         @if(session('gagal'))
                         <p class="text-danger">{{session('gagal')}}</p>
                         @endif
+
+                        <!-- Forgot Password Link -->
+                        <div class="text-center mt-3">
+                            <a href="{{ route('forgot-password') }}" class="text-decoration-none">Lupa Password?</a>
+                        </div>
                     </div>
                 </div>
             </div>

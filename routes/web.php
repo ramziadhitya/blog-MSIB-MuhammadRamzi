@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserProfile;
+use App\Http\Controllers\PasswordResetController;
 
 
 Route::get('/', function () {
@@ -22,10 +23,22 @@ Route::post('/registrasi/submit', [AuthController::class, 'submitRegistrasi'])->
 Route::post('/login/submit', [AuthController::class, 'submitLogin'])->name('login.submit');
 Route::get('/login', [AuthController::class, 'tampilLogin'])->name('login');
 
+Route::get('forgot-password', [AuthController::class, 'forgot_password'])->name('forgot-password');
+Route::post('forgot-password-act', [AuthController::class, 'forgot_password_act'])->name('forgot-password-act');
+Route::get('validasi-forgot-password/{token}', [AuthController::class, 'validasi_forgot_password'])->name('validasi-forgot-password');
+Route::post('validasi-forgot-password-act', [AuthController::class, 'validasi_forgot_password_act'])->name('validasi-forgot-password-act');
+
+
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
+
+// Route::post('password/email', [PasswordResetController::class, 'sendResetLinkEmail'])->name('password.email');
+// Route::get('password/reset/{token}', [PasswordResetController::class, 'showResetForm'])->name('password.reset'); // Pastikan ada {token}
+// Route::post('password/reset', [PasswordResetController::class, 'reset'])->name('password.update');
+
 
 
 Route::middleware('auth')->group(function (){
